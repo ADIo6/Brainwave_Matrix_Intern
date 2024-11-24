@@ -9,8 +9,8 @@
     width: 100%;
     min-height: 100vh;
     padding: 10px;
-    background-image: url(images/background.webp);
-    /* background: linear-gradient(120deg, #b64632, #413aa0); */
+    /* background-image: url(images/backg.jpg); */
+    background: linear-gradient(120deg, #b64632, #413aa0);
     background-position: center;
     background-size: cover;
     justify-content: center;
@@ -101,10 +101,10 @@
 .tasksLists::-webkit-scrollbar-thumb:hover {
     background: #555; /* Darker color on hover */
 }
-.tasksLists::-webkit-scrollbar-track-piece{
-    /* background:#002765; */
-    /* border: none; */
-}
+/* .tasksLists::-webkit-scrollbar-track-piece{
+    background:#002765;
+     border: none;
+    }  */
 
 ul li{
     list-style: none;
