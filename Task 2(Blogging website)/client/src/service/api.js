@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from '../constants/config.js';
-
+import { getAccessToken } from '../utils/common-util.js';
 
 const API_URL = 'http://localhost:8000';
 
@@ -10,7 +10,8 @@ const axiosInstance = axios.create({
     baseURL: API_URL,
     timeout: 10000,
     headers: {
-        'Content-Type': 'application/json',
+        "Accept":"application/json, multipart/form-data", //^^
+        "Content-Type": "application/json"
     }
 
 });
@@ -93,10 +94,13 @@ for (const [key, value] of Object.entries(SERVICE_URLS)) {
     API[key]= (body, showUploadProgress, showDownloadProgress) =>{
 
          return axiosInstance({
-            method:value.method,
+            method: value.method,
             url: value.url,
             data: body,
             responseType: value.responseType,
+            headers:{
+                authorization: getAccessToken()
+            },
             onUploadProgress: function (progressEvent) {
                 if(showUploadProgress){
                     let percentageCompleted = Math.round((progressEvent.loaded * 100 ) / progressEvent.total);
