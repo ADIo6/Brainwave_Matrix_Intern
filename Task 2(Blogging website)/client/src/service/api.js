@@ -3,7 +3,10 @@ import axios from 'axios';
 import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from '../constants/config.js';
 import { getAccessToken, getType } from '../utils/common-util.js';
 
-const API_URL = 'http://localhost:8000';
+// const API_URL = 'http://localhost:8000'; development phase
+// const API_URL = 'https://your-backend-service.onrender.com'; //instead of hard coding like this do the below 
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 
 const axiosInstance = axios.create({

@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 
 
 
-const url = 'http://localhost:8000';
+// const url = 'http://localhost:8000'; // development phase
+const url = process.env.BASE_URL || 'http://localhost:8000';
+
 
 let gfs, gridfsBucket;
 const conn = mongoose.connection;
