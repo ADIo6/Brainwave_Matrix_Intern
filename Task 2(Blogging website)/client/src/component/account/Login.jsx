@@ -18,10 +18,11 @@ const Component = styled(Box)`
 `
 
 const Image = styled('img')({
-    width: 100,
+    width: 200,
     margin: 'auto',
     display: 'flex',
-    padding: '50px 0 0'
+    padding: '30px 0 0',
+    objectFit: 'cover'
 });
 
 const Wrapper = styled(Box)`
@@ -76,7 +77,7 @@ const signUpInitialValues ={
 
 const Login = ({ isUserAuthenticated }) =>{
     
-    const imageURL = 'https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png';
+    const imageURL = 'https://res.cloudinary.com/diad3z03m/image/upload/c_crop,w_400,h_200/v1733921098/Blog_1_gfqrb2.png';
     const [account, toggleAccount] = useState('login');
     const [signup, setSignUp] = useState(signUpInitialValues);
     const [login,setLogin] = useState(loginInitialValues);

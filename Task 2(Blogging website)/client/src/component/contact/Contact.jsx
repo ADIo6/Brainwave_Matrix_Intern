@@ -2,7 +2,7 @@ import { Box, styled, Typography, Link } from '@mui/material';
 import { GitHub, Instagram, Email } from '@mui/icons-material';
 
 const Banner = styled(Box)`
-    background-image: url(http://mrtaba.ir/image/bg2.jpg);
+    background-image: url(https://res.cloudinary.com/diad3z03m/image/upload/v1733923689/contact_cilpuh.jpg);
     width: 100%;
     height: 50vh;
     background-position: left 0px top -100px;
@@ -26,9 +26,9 @@ const Contact = () => {
         <Box>
             <Banner />
             <Wrapper>
-                <Typography variant="h3">Getting in touch is easy!</Typography>    
+                <Typography variant="h3">Want to get in touch, it's easy!</Typography>    
                 <Text variant="h5">
-                    Reach out to me on
+                    Let's connect on
                     <Link href="https://www.instagram.com/adi___06/" color="inherit" target="_blank">
                         <Instagram/>
                     </Link>

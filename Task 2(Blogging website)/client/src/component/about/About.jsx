@@ -3,17 +3,17 @@ import { Box, styled, Typography, Link } from '@mui/material';
 import { GitHub, Instagram, Email } from '@mui/icons-material';
 
 const Banner = styled(Box)`
-    background-image: url(https://www.wallpapertip.com/wmimgs/23-236943_us-wallpaper-for-website.jpg);
+    background-image: url(https://res.cloudinary.com/diad3z03m/image/upload/v1733924424/aboutme_ykeee6.jpg);
     width: 100%;
     height: 50vh;
     background-position: left 0px bottom 0px;
-    background-size: cover;
+    background-size: contain;
 `;
 
 const Wrapper = styled(Box)`
     padding: 20px;
     & > h3, & > h5 {
-        margin-top: 50px;
+        margin-top: 20px;
     }
 `;
 

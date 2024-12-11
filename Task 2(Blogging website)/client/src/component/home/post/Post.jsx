@@ -22,7 +22,8 @@ const Image =styled('img')({
     width: '100%',
     borderRadius: '10px  10px 0 0 ',
     objectFit: 'cover',
-    height: 150
+    height: 150,
+    
 })
 
 const Text = styled(Typography)`

@@ -22,12 +22,14 @@ const Heading = styled(Typography)`
 const SubHeading = styled(Typography)`
     font-size:20px;
     background:#FFFFFF;
+    border-radius: 10px;
+    padding: 0 5px;
 `
 const Banner =() =>{
     return(
         <Image>
             <Heading>BLOG</Heading>
-            <SubHeading>DebugWithAdil</SubHeading>
+            <SubHeading>Create Your own Space</SubHeading>
             
         </Image>
     )

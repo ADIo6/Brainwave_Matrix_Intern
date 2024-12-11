@@ -25,6 +25,7 @@ const Image = styled('img')({
     width: '100%',
     height: '50vh',
     objectFit: 'cover',
+    borderRadius: 20
 });
 
 const StyledFormControl = styled(FormControl)`
