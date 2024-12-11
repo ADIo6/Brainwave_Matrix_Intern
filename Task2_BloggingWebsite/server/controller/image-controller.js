@@ -22,8 +22,11 @@ export const uploadImage = (request, response) =>{
         return response.status(404).json({ msg: "File not found "});
 
     }
-    const imageUrl = `${url}/file/${request.file.filename}`;
+    // const imageUrl = `${url}/file/${request.file.filename}`;
+    // return response.status(200).json(imageUrl);
+    const imageUrl = `https://blogsphere-o93q.onrender.com/file/${request.file.filename}`;
     return response.status(200).json(imageUrl);
+
 }
 
 export const getImage = async (request, response) => {
