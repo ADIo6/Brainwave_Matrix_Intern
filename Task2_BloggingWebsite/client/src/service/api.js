@@ -5,16 +5,16 @@ import { getAccessToken, getType } from '../utils/common-util.js';
 
 // const API_URL = 'http://localhost:8000'; development phase
 // const API_URL = 'https://your-backend-service.onrender.com'; //instead of hard coding like this do the below 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
-    timeout: 10000,
+    timeout: process.env.REACT_APP_API_TIMEOUT || 55000,
     headers: {
-        "Accept":"application/json, multipart/form-data", //^^
-        "Content-Type": "application/json"
+        "Accept":"application/json, multipart/form-data" //^^
+        // "Content-Type": "application/json"
     }
 
 });
@@ -66,34 +66,69 @@ const processResponse = (response) => {
 
 
 
-const processError = (error) =>{
-    if(error.response){
-        //Request made and server responded with a status other
-        // that falls out of the range 2.x.x
-        console.log('Error in response: ', error.toJSON());
-        return{
+// const processError = (error) =>{
+//     if(error.response){
+//         //Request made and server responded with a status other
+//         // that falls out of the range 2.x.x
+//         console.log('Error in response: ', error.toJSON());
+//         return{
+//             isError: true,
+//             msg: API_NOTIFICATION_MESSAGES.responseFailure,
+//             code: error.response.status
+//         }
+//     }else if(error.request){
+//         // Request made but no response was received(problem with connection of f-end & b-end)
+//         console.log('Error in request : ', error.toJSON());
+//         return{
+//             isError: true,
+//             msg: API_NOTIFICATION_MESSAGES.requestFailure,
+//             code: ""
+//         }
+//     }else{
+//         //Something happened in setting up request that triggers an errors
+//         console.log('Error in Network : ', error.toJSON());
+//         return{
+//             isError: true,
+//             msg: API_NOTIFICATION_MESSAGES.networkError,
+//             code: ""
+//         }
+//     }
+// }
+
+const processError = (error) => {
+    if (error.code === 'ECONNABORTED') {
+        console.error('Request Timeout: ', error.message);
+        return {
             isError: true,
-            msg: API_NOTIFICATION_MESSAGES.responseFailure,
-            code: error.response.status
-        }
-    }else if(error.request){
-        // Request made but no response was received(problem with connection of f-end & b-end)
-        console.log('Error in request : ', error.toJSON());
-        return{
-            isError: true,
-            msg: API_NOTIFICATION_MESSAGES.requestFailure,
-            code: ""
-        }
-    }else{
-        //Something happened in setting up request that triggers an errors
-        console.log('Error in Network : ', error.toJSON());
-        return{
-            isError: true,
-            msg: API_NOTIFICATION_MESSAGES.networkError,
-            code: ""
-        }
+            msg: { title: 'Request Timeout', message: 'The server took too long to respond. Please try again later.' },
+            code: error.code,
+        };
     }
-}
+
+    if (error.response) {
+        console.error('Error in response: ', error.toJSON());
+        return {
+            isError: true,
+            msg: { title: 'Error', message: 'An error occurred while processing your request.' },
+            code: error.response.status,
+        };
+    } else if (error.request) {
+        console.error('Error in request: ', error.toJSON());
+        return {
+            isError: true,
+            msg: { title: 'Request Error', message: 'No response received from the server. Please check your connection.' },
+            code: "",
+        };
+    } else {
+        console.error('Error in Network: ', error.toJSON());
+        return {
+            isError: true,
+            msg: { title: 'Network Error', message: 'An unexpected error occurred. Please try again later.' },
+            code: "",
+        };
+    }
+};
+
 
 const API = {};
 
