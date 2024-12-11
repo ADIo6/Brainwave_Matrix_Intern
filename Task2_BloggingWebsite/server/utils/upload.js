@@ -14,7 +14,7 @@ const storage = new GridFsStorage({
     url:`mongodb://${username}:${password}@blog-app-shard-00-00.bhjlp.mongodb.net:27017,blog-app-shard-00-01.bhjlp.mongodb.net:27017,blog-app-shard-00-02.bhjlp.mongodb.net:27017/test?ssl=true&replicaSet=atlas-px96ok-shard-0&authSource=admin&retryWrites=true&w=majority&appName=blog-app`,
     options: { useNewUrlParser: true },
     file: ( request, file ) =>{
-        const match = ["image/png", "image/jpg", "image/jpeg"];
+        const match = ["image/png", "image/jpg", "image/jpeg","image/webp"];
 
         if(match.indexOf(file.mimetype) === -1){ //^^ file.memeType
             return `${Date.now()}-blog-${file.originalname}`;
