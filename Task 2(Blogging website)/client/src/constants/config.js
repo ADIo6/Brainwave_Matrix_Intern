@@ -27,10 +27,17 @@ export const API_NOTIFICATION_MESSAGES = {
 // API service call
 
 // SAMPLE REQUEST
-// NEED SERVICE CALL: { url:'/', method:'POST/GET/PUT/DELETE' param: true/false, query: true/false }
+// NEED SERVICE CALL: { url:'/', method:'POST/GET/PUT/DELETE' params: true/false, query: true/false }
 export const SERVICE_URLS = {
     userSignup: { method: 'POST', url: '/signup', responseType: 'json' }, //^^
     userLogin: { method: 'POST', url: '/login', responseType: 'json'},
     uploadFile: { method: 'POST', url: '/file/upload',  responseType: 'json' },
-    createPost: { method: 'POST', url: 'create'}
+    createPost: { method: 'POST', url: 'create'},
+    getAllPosts: { method: 'GET', url: '/posts', params: true},
+    getPostById: { method: 'GET', url: 'post', query: true },
+    updatePost: { method: 'PUT', url: 'update', query: true },
+    deletePost: { method: 'DELETE', url: 'delete', query: true},
+    newComment: { method: 'POST', url: '/comment/new' },
+    getAllComments: { method:'GET', url: 'comments', query: true },
+    deleteComment: { method:'DELETE', url: 'comment/delete', query: true}
 };
