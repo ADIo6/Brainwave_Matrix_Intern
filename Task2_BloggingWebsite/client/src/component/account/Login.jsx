@@ -141,7 +141,7 @@ const Login = ({ isUserAuthenticated }) =>{
                 <Wrapper>
 
                     <TextField variant="standard" value={login.email} onChange={(e)=> onValueChange(e)} name="email" label = "Enter your email" />
-                    <TextField variant="standard" value={login.password} onChange= {(e) => onValueChange(e)} name="password" label = "Enter your password"/>
+                    <TextField type='password' variant="standard" value={login.password} onChange= {(e) => onValueChange(e)} name="password" label = "Enter your password"/>
                     
                     {error && <Error>{error}</Error>}
 
@@ -154,8 +154,10 @@ const Login = ({ isUserAuthenticated }) =>{
 
                     <TextField variant="standard" value={signup.name || ''} onChange={(e) => onInputChange(e)} name='name' label = "Enter your name" />
                     <TextField variant="standard" value={signup.email ||''} onChange={(e) => onInputChange(e)} name='email' label = "Enter your email" />   
-                    <TextField variant="standard" value={signup.password || ''} onChange={(e) => onInputChange(e)} name='password' label = "Enter password"/>
+                    <TextField type='password' variant="standard" value={signup.password || ''} onChange={(e) => onInputChange(e)} name='password' label = "Enter password"/>
+                    
                     { error && <Error>{error}</Error>}
+                    
                     <SignupButton onClick={() => signUpUser()} variant="contained">SignUp</SignupButton>
                     <Text style={{textAlign: 'center'}}>OR</Text>
                     <LoginButton onClick={() => toggleSignUp()} >Already have an account</LoginButton>
