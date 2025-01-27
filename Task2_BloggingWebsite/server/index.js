@@ -12,7 +12,7 @@ dotenv.config();
 
 // app.use(cors()); // development phase
 const corsOptions = {
-    origin: 'https://aquamarine-valkyrie-a62459.netlify.app', // Replace with your Netlify frontend URL
+    origin: 'https://blogsphere-adil-ahmed.netlify.app', // Replace with your Netlify frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, // If using cookies or sessions
 };
